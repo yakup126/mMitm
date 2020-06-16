@@ -1,4 +1,5 @@
 # mMitm
+<pre>
 Man in the middle
 python3 /root/Desktop/mMitm/mitmf.py -g 10.0.2.1 -t 10.0.2.3
 python3 /root/Desktop/mMitm/mitmf.py -h
@@ -29,9 +30,13 @@ chose 1 or 2
 
 
 
+Listen the package[Y/n] 
+
+chose yes or no(default=yes)
 
 
 
 
 
+</pre>
 
